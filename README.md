@@ -1,2 +1,2 @@
-# appClubApi
-App para gestionar clubes, jugadores y entrenadores
+# appClub
+Mini-app para gestionar clubes, jugadores y entrenadores
