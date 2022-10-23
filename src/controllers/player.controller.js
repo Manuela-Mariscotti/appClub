@@ -129,7 +129,7 @@ function putPlayerInClub(req,res){
 
                             } else {
 // 
-// --- incluye jugador en el club
+// --- incluye nuevo jugador en el club
 // 
                                 let sql3=`UPDATE players set id_club=${id_club} where id_player=${id_player}`;
 
