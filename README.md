@@ -1,4 +1,4 @@
-# App para gestión de clubs
+# Gestión de clubs
 
 _Mini-aplicación Javascript API Rest para gestion de clubes, jugadores y entrenadores para prueba de nivel. Incluye una vista en Html._
 
