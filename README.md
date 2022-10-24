@@ -69,7 +69,7 @@ _Inlcuidas en la colección de Postman🚀_
 
 ## Autora ✒️
 
-**Manuela Mariscotti** - *Desarrollo* - 
+**Manuela Mariscotti** - *Desarrollo*
 
 * [GitHub](https://github.com/Manuela-Mariscotti)
 
