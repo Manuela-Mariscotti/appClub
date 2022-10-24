@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "de16a49e-a7ad-4870-a371-17316505cecf",
+		"name": "App Gestion Clubs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22748081"
+	},
+	"item": [
+		{
+			"name": "Dar de alta un club",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"club_name\":\"Real Madrid\",\r\n    \"budget\":\"1000000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/club",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"club"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar el presupuesto de un club",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_club\":\"1\",\r\n    \"budget\":\"1000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/club",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"club"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dar de alta un jugador sin pertenecer a un club",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"player_f_name\":\"Gaston\",\r\n    \"player_l_name\":\"Pauls\",\r\n    \"player_salary\": 2000,\r\n    \"player_email\":\"antonio@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/player",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"player"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dar de alta un jugador en un club.",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_club\" : 1,\r\n    \"id_player\" :2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/playerIn",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"playerIn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar jugadores de un club",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_club\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/playerByClub?id_club=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"playerByClub"
+					],
+					"query": [
+						{
+							"key": "id_club",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filtrar jugador por su nombre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/playerByName?player_l_name=lopez",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"playerByName"
+					],
+					"query": [
+						{
+							"key": "player_l_name",
+							"value": "lopez"
+						}
+					]
+				},
+				"description": "http://localhost:3000/playerByName"
+			},
+			"response": []
+		},
+		{
+			"name": "Dar de alta un entrenador sin pertenecer a un club",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"coach_f_name\":\"Antonio\",\r\n    \"coach_l_name\":\"Lara\",\r\n    \"coach_salary\": 2000,\r\n    \"coach_email\":\"antonio@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/coach",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coach"
+					]
+				},
+				"description": "Dar de alta un jugador sin pertenecer a un club\n\nStartFragment\n\nhttp://localhost:3000/coach\n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "Dar de alta un entrenador en el club",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_club\": 1,\r\n    \"id_coach\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/coachIn",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coachIn"
+					]
+				},
+				"description": "Dar de alta un entrenador en el club\r\nhttp://localhost:3000/coachIn"
+			},
+			"response": []
+		},
+		{
+			"name": "Dar de baja un entrenador en el club",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_coach\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/coachOut",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"coachOut"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener presupuesto de un club por su id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/club?id_club=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"club"
+					],
+					"query": [
+						{
+							"key": "id_club",
+							"value": "1"
+						}
+					]
+				},
+				"description": "http://localhost:3000/club?id_club=1"
+			},
+			"response": []
+		}
+	]
+}
