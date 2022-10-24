@@ -1,5 +1,9 @@
 const db = require("../database");
 const club = require("./club.controller");
+const mailer = require("./sendEmail");
+
+
+// --- DAR DE ALTA UN JUGADOR
 
 function postPlayer(req,res){
 
@@ -50,6 +54,8 @@ function postPlayer(req,res){
     })
 }
 
+// --- DAR DE ALTA UN JUGADOR EN UN CLUB
+
 function putPlayerInClub(req,res){
 
     let id_player = req.body.id_player;
@@ -69,14 +75,12 @@ function putPlayerInClub(req,res){
             
         } else {
 // 
-// --- consulta prespuesto y salarios actuales
+// --- consulta salarios actuales
 // 
             let sql1 = 
-            `SELECT budget,sum(coach_salary+player_salary) as salaries
-            FROM clubs
-            JOIN coachs ON (clubs.id_club=coachs.id_club) 
-            JOIN players ON (coachs.id_club=players.id_club) 
-            WHERE clubs.id_club=${id_club}`;
+            `SELECT sum(player_salary) as salaries FROM players WHERE id_club=${id_club}
+            union all
+            SELECT sum(coach_salary) as salaries FROM coachs WHERE id_club=${id_club}`;
 
             db.query(sql1, (error,result) => {
 
@@ -91,13 +95,14 @@ function putPlayerInClub(req,res){
                     res.send(response);
 
                 } else {
-
-                    let budget = result[0].budget;
-                    let salaries = result[0].salaries;
+                    
+                    let players_salaries = Number(result[0].salaries);
+                    let coachs_salaries = Number(result[1].salaries);
+                    let actualSalaries = players_salaries + coachs_salaries;
 // 
 // --- consulta salario del jugador entrante
 //                     
-                    let sql2 = `SELECT player_salary FROM players WHERE id_player=${id_player}`;
+                    let sql2 = `SELECT player_salary,player_l_name,player_email FROM players WHERE id_player=${id_player}`;
 
                     db.query(sql2, (error,result) => {
 
@@ -113,49 +118,81 @@ function putPlayerInClub(req,res){
                             
                         } else {
 
+                            let player_l_name = result[0].player_l_name;
+                            let player_email = result[0].player_email;
+
                             let newSalary = result[0].player_salary;
 
-                            let totalSalaries = Number(salaries)+Number(newSalary);
+                            let totalSalaries = Number(actualSalaries)+Number(newSalary);
+// 
+// --- consulta presupuesto del club
+// 
+                            let sql3 = `SELECT budget,club_name FROM clubs WHERE id_club=${id_club}`;
+                        
+                            db.query(sql3, (error,result) => {
 
-                            if (totalSalaries > budget) {
+                            if (error) {
                                 
                                 let response =  {
-                                    error : false,
-                                    code : 200,
-                                    message : "Not enough budget"
+                                    error : true,
+                                    code : 400,
+                                    message : 'DB query-3 executing error -->'+error.message
                                 }
             
                                 res.send(response);
 
                             } else {
+
+                                let club_name = result[0].club_name;
+// 
+// --- comprueba si los salarios son mayores que el presupuesto
+// 
+                                let budget = Number(result[0].budget);
+                                
+                                if (totalSalaries > budget) {
+                                
+                                    let response =  {
+                                        error : false,
+                                        code : 200,
+                                        message : "Not enough budget"
+                                    }
+                
+                                    res.send(response);
+
+                                } else {
 // 
 // --- incluye nuevo jugador en el club
 // 
-                                let sql3=`UPDATE players set id_club=${id_club} where id_player=${id_player}`;
+                                let sql4=`UPDATE players set id_club=${id_club} where id_player=${id_player}`;
 
-                                db.query(sql3, (error,result) =>{
+                                db.query(sql4, (error,result) =>{
 
                                     if (error) {
                                         
                                         let response =  {
                                             error : true,
                                             code : 400,
-                                            message : 'DB query-3 executing error -->'+error.message
+                                            message : 'DB query-4 executing error -->'+error.message
                                         }
                     
                                         res.send(response);
 
                                     } else {
+
+                                        let subject = "alta";
+
+                                        mailer.sendEmail(player_email,player_l_name,club_name,subject);
 // 
 // --- actualiza presupuesto del club
 // 
                                         let balance = budget - totalSalaries
-                                            
-                                        club.putBudgetClub(id_club, balance, res);
+
+                                        club.updateBudgetClub(id_club, balance, res);
 
                                     }
-                                })
+                                })}
                             }
+                        })
                         }
                     })
                 }
@@ -164,13 +201,13 @@ function putPlayerInClub(req,res){
     })
 }
 
+// --- DAR DE BAJA UN JUGADOR DE UN CLUB
 
 function putPlayerOutClub(req,res){
 
-    let sql = `UPDATE players SET id_club=null WHERE id_player=?`;
+    let id_player = req.body.id_player
 
-    const params = [req.body.id_player];
-
+    let sql = `UPDATE players SET id_club=null WHERE id_player=${id_player}`;
 
     db.connect((error)=>{
 
@@ -186,7 +223,7 @@ function putPlayerOutClub(req,res){
             
         } else {
 
-            db.query(sql, params, (error,result) => {
+            db.query(sql, (error,result) => {
 
                 if (error) {
 
@@ -213,11 +250,13 @@ function putPlayerOutClub(req,res){
     })
 }
 
+// --- OBTENER JUGADORES DE UN CLUB
+
 function getPlayersByClub(req,res){
 
-    let sql = `SELECT * FROM players WHERE id_club=?`;
+    let id_club = req.query.id_club
 
-    const params = [req.body.id_club]
+    let sql = `SELECT * FROM players WHERE id_club=${id_club}`;
 
     db.connect((error) => { 
 
@@ -232,7 +271,7 @@ function getPlayersByClub(req,res){
 
         } else {
 
-            db.query(sql, params, (error,result) => {
+            db.query(sql, (error,result) => {
 
                 if (error) {
                     
@@ -260,11 +299,13 @@ function getPlayersByClub(req,res){
     })
 }
 
+// --- OBTENER JUGADORES FILTRANDO POR APELLIDO
+
 function getPlayerByName(req,res){
 
-    let sql = `SELECT * FROM players WHERE player_l_name=?`
+    let player_l_name = req.query.player_l_name;
 
-    const params = [req.body.player_l_name];
+    let sql = `SELECT * FROM players WHERE player_l_name="${player_l_name}"`
 
     db.connect((error) => { 
 
@@ -279,7 +320,7 @@ function getPlayerByName(req,res){
 
         } else {
 
-            db.query(sql, params, (error,result) => {
+            db.query(sql, (error,result) => {
 
                 if (error) {
                     

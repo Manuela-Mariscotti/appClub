@@ -71,13 +71,12 @@
             <div class="row">
 
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <button class="btn btn-primary" type="button" onclick="">Dar de alta</button>
-                    <button class="btn btn-primary" type="button" onclick="">Ver por nombre</button>
+                    <button class="btn btn-primary" type="button" onclick="postPlayer()">Dar de alta</button>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-primary" type="button" onclick="getPlayerByName()">Buscar por apellido</button>                     
                 </div>
 
-                <div class="d-grid gap-2 col-6 mx-auto">
-                    <button class="btn btn-primary" type="button" onclick="">Listar todos</button>
-                </div>
             </div>
 
 <!-------------- INPUT ID_CLUB ------------------>     
@@ -94,20 +93,25 @@
             <div class="row">
 
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <button class="btn btn-primary" type="button" onclick="">Alta en club</button>
+                    <button class="btn btn-primary" type="button" onclick="putPlayerInClub()">Alta en club</button>
+                    <button class="btn btn-primary" type="button" onclick="putPlayerOutClub()">Baja de club</button>                
                 </div>
-
+                   
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <button class="btn btn-primary" type="button" onclick="">Baja de club</button>
+                    <button class="btn btn-primary" type="button" onclick="getPlayersByClub()">Ver jugadores de un club</button>
+                                  
                 </div>
+                 
+                       
             </div>
+
         </div>
     </div>
 
 <!-------------- TABLA ------------------>
 
     <div class="row justify-content-md-center">
-        <div class="col-6  p-3 contTabla1 contTabla2">
+        <div class="col-6  p-3 contTable1 contTable2">
             <table class="table" id="playersList">
 
             </table>
