@@ -59,7 +59,6 @@ _Inlcuidas en la colección de Postman🚀_
 
 * Javascript
 * Node JS
-* MySql
 * MySQL Workbench
 * Postman
 * Html
@@ -72,9 +71,9 @@ _Inlcuidas en la colección de Postman🚀_
 
 **Manuela Mariscotti** - *Desarrollo* - 
 
-*[GitHub](https://github.com/Manuela-Mariscotti)
+* [GitHub](https://github.com/Manuela-Mariscotti)
 
-*[Linkedin](https://www.linkedin.com/in/manuela-mariscotti/)
+* [Linkedin](https://www.linkedin.com/in/manuela-mariscotti/)
 
 
 
