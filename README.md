@@ -42,8 +42,11 @@ node apiRest
 ## Contiene 
 
 📁 appClubFront : con los archivos para la vista
-📁 rc : con los archivos del back
+
+📁 src : con los archivos del back
+
 📄 Colección de Postman
+
 📄 Dump de la BD
 
 
