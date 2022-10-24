@@ -18,20 +18,25 @@ https://github.com/Manuela-Mariscotti/appClub
 ```
 Dump_App_Clubs.sql
 ```
+4º) - Importar colección de Postman 
 
-4º) - Ejecutar VSCode u otro editor y abrir la carpeta raiz.
+```
+App Gestion Clubs.postman_collection.json
+```
 
-5º) - Abrir terminal integrado en la carpeta **appClubApi/src** (en VSCode pulsar botón derecho sobre la carpeta para abrir el terminal integrado).
+5º) - Ejecutar VSCode u otro editor y abrir la carpeta raiz.
 
-6º) - Ejecutar en el terminal:
+6º) - Abrir terminal integrado en la carpeta **appClubApi/src** (en VSCode pulsar botón derecho sobre la carpeta para abrir el terminal integrado).
+
+7º) - Ejecutar en el terminal:
 
 ```
 node apiRest
 ```
 
-7º) - Ejecutar el fichero index.html en la carpeta **appClubApi/appClubFront/index.html**
+8º) - Ejecutar el fichero index.html en la carpeta **appClubApi/appClubFront/index.html**
 
-8º) - Abrir la consola del navegador
+9º) - Abrir la consola del navegador
 
 
 ## Operaciones que se pueden realizar ⚙️
