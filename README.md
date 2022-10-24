@@ -50,7 +50,7 @@ node apiRest
 📄 Dump de la BD
 
 
-## Operaciones que se pueden realizar ⚙️
+## Operaciones que se pueden realizar 🕹️
 
 🔸 Clubs
 * Dar de alta un club
