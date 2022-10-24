@@ -1,6 +1,7 @@
 # App para gestión de clubs
 
-_Mini-aplicación Javascript API Rest para gestion de clubes, jugadores y entrenadores._
+_Mini-aplicación Javascript API Rest para gestion de clubes, jugadores y entrenadores para prueba de nivel. Incluye una vista en Html para comprobar su funcionamiento._
+
 
 ## Instrucciones de instalación 🔧
 
@@ -12,7 +13,7 @@ https://github.com/Manuela-Mariscotti/appClub
 
 2º) - Guardar todo en la misma carpeta.
 
-3º) - Restaurar base de datos con el archivo 
+3º) - Restaurar base de datos MySql con el archivo: 
 
 ```
 Dump_App_Clubs.sql
@@ -20,110 +21,57 @@ Dump_App_Clubs.sql
 
 4º) - Ejecutar VSCode u otro editor y abrir la carpeta raiz.
 
-5º) - Abrir terminal integrado en la carpeta *appClubApi/src* (en VSCode pulsar botón derecho sobre la carpeta para abrir el terminal integrado).
+5º) - Abrir terminal integrado en la carpeta **appClubApi/src** (en VSCode pulsar botón derecho sobre la carpeta para abrir el terminal integrado).
 
-6º) - Ejecutar 
+6º) - Ejecutar en el terminal:
 
 ```
 node apiRest
 ```
 
-7º) - Ejecutar el fichero index.html en la carpeta *appClubApi/appClubFront/index.html*
+7º) - Ejecutar el fichero index.html en la carpeta **appClubApi/appClubFront/index.html**
 
 8º) - Abrir la consola del navegador
 
-### Pre-requisitos 📋
 
-_Que cosas necesitas para instalar el software y como instalarlas_
+## Operaciones que se pueden realizar ⚙️
 
-```
-Da un ejemplo
-```
+🔸 Clubs
+* Dar de alta un club
+* Modificar el presupuesto de un club
 
-### Instalación 🔧
+🔸 Jugadores
+* Dar de alta un jugador sin pertenecer a un club
+* Dar de alta un jugador en el club
+* Dar de baja un jugador en el club
+* Listar jugadores de un club
+* Buscar un jugador por apellido
 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
+🔸 Entrenadores
+* Dar de alta un entrenador sin pertenecer a un club
+* Dar de alta un entrenador en el club
+* Dar de baja un entrenador en el club
 
-_Dí cómo será ese paso_
+_Inlcuidas en la colección de Postman🚀_
 
-```
-Da un ejemplo
-```
-
-_Y repite_
-
-```
-hasta finalizar
-```
-
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
-
-## Ejecutando las pruebas ⚙️
-
-_Explica como ejecutar las pruebas automatizadas para este sistema_
-
-### Analice las pruebas end-to-end 🔩
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-### Y las pruebas de estilo de codificación ⌨️
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-## Despliegue 📦
-
-_Agrega notas adicionales sobre como hacer deploy_
 
 ## Construido con 🛠️
 
-_Menciona las herramientas que utilizaste para crear tu proyecto_
+* Javascript
+* Node JS
+* MySQL Workbench
+* Postman
+* Html
+* Bootstrap
+* Css
+* VS Code
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
 
-## Contribuyendo 🖇️
+## Autora ✒️
 
-Por favor lee el [CONTRIBUTING.md](https://gist.github.com/villanuevand/xxxxxx) para detalles de nuestro código de conducta, y el proceso para enviarnos pull requests.
-
-## Wiki 📖
-
-Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/tu/proyecto/wiki)
-
-## Versionado 📌
-
-Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
-
-## Autores ✒️
-
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
-* **Andrés Villanueva** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
-* **Fulanito Detal** - *Documentación* - [fulanitodetal](#fulanito-de-tal)
-
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
-
-## Licencia 📄
-
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
-
-## Expresiones de Gratitud 🎁
-
-* Comenta a otros sobre este proyecto 📢
-* Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
-* Da las gracias públicamente 🤓.
-* Dona con cripto a esta dirección: `0xf253fc233333078436d111175e5a76a649890000`
-* etc.
+**Manuela Mariscotti** - *Desarrollo* - 
+*[GitHub](https://github.com/Manuela-Mariscotti)
+*[Linkedin](https://www.linkedin.com/in/manuela-mariscotti/)
 
 
 
----
-⌨️ con ❤️ por [Villanuevand](https://github.com/Villanuevand) 😊
