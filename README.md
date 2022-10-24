@@ -1,6 +1,6 @@
 # App para gestión de clubs
 
-_Mini-aplicación Javascript API Rest para gestion de clubes, jugadores y entrenadores para prueba de nivel. Incluye una vista en Html para comprobar su funcionamiento._
+_Mini-aplicación Javascript API Rest para gestion de clubes, jugadores y entrenadores para prueba de nivel. Incluye una vista en Html._
 
 
 ## Instrucciones de instalación 🔧
@@ -59,6 +59,7 @@ _Inlcuidas en la colección de Postman🚀_
 
 * Javascript
 * Node JS
+* MySql
 * MySQL Workbench
 * Postman
 * Html
@@ -70,7 +71,9 @@ _Inlcuidas en la colección de Postman🚀_
 ## Autora ✒️
 
 **Manuela Mariscotti** - *Desarrollo* - 
+
 *[GitHub](https://github.com/Manuela-Mariscotti)
+
 *[Linkedin](https://www.linkedin.com/in/manuela-mariscotti/)
 
 
