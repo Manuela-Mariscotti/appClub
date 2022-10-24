@@ -36,7 +36,15 @@ node apiRest
 
 8º) - Ejecutar el fichero index.html en la carpeta **appClubApi/appClubFront/index.html**
 
-9º) - Abrir la consola del navegador
+9º) - Abrir la consola del navegador.
+
+
+## Contiene 
+
+📁 appClubFront : con los archivos para la vista
+📁 rc : con los archivos del back
+📄 Colección de Postman
+📄 Dump de la BD
 
 
 ## Operaciones que se pueden realizar ⚙️
